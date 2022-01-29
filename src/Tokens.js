@@ -1,6 +1,6 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import Anoying from "./token/build/contracts/Anoying.json";
+import Anoying from "./Anoying.json";
 import Ticket from "./utils/Ticket";
 import useWeb3 from "./utils/useWeb3";
 
