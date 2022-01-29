@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "node": "latest",
     "@metamask/eth-sig-util": "^4.0.0",
     "@openzeppelin/contracts": "^4.4.2",
     "@testing-library/jest-dom": "^5.16.1",
@@ -63,5 +64,8 @@
     "stream-browserify": "^3.0.0",
     "stream-http": "^3.2.0",
     "url": "^0.11.0"
+  },
+  "engines": {
+    "node": "14.x"
   }
 }
