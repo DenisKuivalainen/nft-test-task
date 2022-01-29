@@ -1,5 +1,5 @@
 const HDWalletProvider = require("@truffle/hdwallet-provider");
-require("dotenv").config({path: "../../.env"});
+require("dotenv").config({ path: "../../.env" });
 
 module.exports = {
   networks: {

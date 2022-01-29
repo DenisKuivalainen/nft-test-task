@@ -68,7 +68,8 @@ export default ({
       >
         <a style={{ fontSize: `${(cellSize * cellsAmount) / 3 - 2}px` }}>
           {data.name}
-        </a> {ticketId}
+        </a>{" "}
+        {ticketId}
         <br />
         <br /> Uses left:{" "}
         <a style={{ fontSize: `${(cellSize * cellsAmount) / 4 - 2}px` }}>

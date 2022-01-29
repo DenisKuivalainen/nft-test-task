@@ -60,7 +60,7 @@ export default () => {
         reloadWeb3();
       })
       .catch(reload);
-  }
+  };
 
   useEffect(() => {
     setIsMinter(false);
@@ -135,7 +135,7 @@ export default () => {
           >
             Mint
           </button>
-          <br/>
+          <br />
           <input
             placeholder="token id"
             onChange={(e) => setIdToBurn(e.target.value)}
@@ -151,11 +151,11 @@ export default () => {
           ></input>
           <button
             onClick={burnToken}
-            disabled={ !idToBurn.length || !amountToBurn.length}
+            disabled={!idToBurn.length || !amountToBurn.length}
           >
             Burn
           </button>
-          <br/>
+          <br />
         </div>
       )}
       {tokens.map((t) => (
