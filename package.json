@@ -31,7 +31,7 @@
     "web3": "^1.7.0"
   },
   "scripts": {
-    "start": "react-app-rewired start",
+    "start": "node server.js",
     "build": "react-app-rewired build",
     "pretty": "prettier --write .",
     "dev": "nodemon --exec \"node kill3000.js && npm run build && node server.js\" --ignore \"build\"",
