@@ -1,25 +1,13 @@
-import logo from './logo.svg';
-import './App.css';
+import { uid } from "uid";
+import Tokens from "./Tokens";
+import useLogin from "./utils/useLogin";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+  const { signIn, isSigned, loading } = useLogin();
+
+  if (!isSigned) return <button onClick={signIn}>SIGN IN</button>;
+  if (loading) return <p>loading...</p>;
+  return <Tokens key={uid()} />;
 }
 
 export default App;
