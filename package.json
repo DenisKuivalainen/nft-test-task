@@ -34,8 +34,7 @@
     "start": "node server.js",
     "build": "react-app-rewired build",
     "pretty": "prettier --write .",
-    "dev": "nodemon --exec \"node kill3000.js && npm run build && node server.js\" --ignore \"build\"",
-    "kill": "kill -9 \"${lsof -t -i:3000}\""
+    "dev": "nodemon --exec \"node kill.js && npm run build && node server.js\" --ignore \"build\"",
   },
   "eslintConfig": {
     "extends": [

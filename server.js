@@ -3,7 +3,7 @@ const { default: getData } = require("./api/getData");
 const { default: image } = require("./api/image");
 const { default: upload } = require("./api/upload");
 const app = express();
-const port = 3000;
+const port = process.env.PORT || 3000;
 
 app.use(express.json());
 

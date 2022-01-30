@@ -5,6 +5,6 @@ const exec = async (command) => {
   return responce;
 };
 
-exec("lsof -t -i:3000")
+exec(`lsof -t -i:${process.env.PORT || 3000}`)
   .then((pid) => exec(`kill -9 ${pid}`))
   .catch(() => {});
