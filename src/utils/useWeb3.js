@@ -23,7 +23,6 @@ export default () => {
 
   const useContract = (contractJson, networkAddress) => {
     const [contract, setContract] = useState();
-    const [balance, setBalance] = useState(0);
 
     useEffect(() => {
       if (web3 && networkId && account) {
@@ -34,20 +33,10 @@ export default () => {
           deployedAddress
         );
         setContract(_contract);
-        // _contract.methods
-        //   .balanceOf?.(account)
-        //   .call()
-        //   .then(fromWei)
-        //   .then(parseFloat)
-        //   .then(setBalance)
-        //   .catch((e) => 0);
       }
     }, [web3, networkId, account]);
 
-    return {
-      contract,
-      balance,
-    };
+    return contract;
   };
 
   const getConfiguration = async () => {

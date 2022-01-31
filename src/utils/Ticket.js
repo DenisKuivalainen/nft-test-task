@@ -1,4 +1,5 @@
 import axios from "axios";
+import moment from "moment";
 import { useState, useEffect } from "react";
 
 export default ({
@@ -35,16 +36,19 @@ export default ({
         }}
       />
     );
+
+  const isNotExpired = Date.now() < data.expiration * 1000;
   return (
     <div
       style={{
         margin: 5,
-        backgroundColor: "white",
+        backgroundColor: isNotExpired ? "white" : "#e7e7e7",
         height: cellSize * cellsAmount + 10,
         width: 550,
-        border: "2px solid black",
+        border: `2px solid ${isNotExpired ? "black" : "#afafaf"}`,
+        cursor: isNotExpired ? "pointer" : "not-allowed",
       }}
-      onClick={onUse}
+      onClick={() => isNotExpired && onUse()}
     >
       <div
         style={{
@@ -66,14 +70,46 @@ export default ({
           marginTop: -10,
         }}
       >
-        <a style={{ fontSize: `${(cellSize * cellsAmount) / 3 - 2}px` }}>
+        <a
+          style={{
+            fontSize: `${(cellSize * cellsAmount) / 3 - 2}px`,
+            fontWeight: "bold",
+            paddingRight: 20,
+          }}
+        >
           {data.name}
         </a>{" "}
-        {ticketId}
-        <br />
+        {`id: ${ticketId}`}
+        <br /> Expired at:{" "}
+        <a
+          style={{
+            fontSize: `${(cellSize * cellsAmount) / 4 - 2}px`,
+            paddingRight: 20,
+            fontWeight: "bold",
+          }}
+        >
+          {moment(new Date(data.expiration * 1000)).format(
+            "DD-MM-YYYY hh:mm:ss"
+          )}
+        </a>
         <br /> Uses left:{" "}
-        <a style={{ fontSize: `${(cellSize * cellsAmount) / 4 - 2}px` }}>
-          {uses}
+        <a
+          style={{
+            fontSize: `${(cellSize * cellsAmount) / 4 - 2}px`,
+            paddingRight: 20,
+            fontWeight: "bold",
+          }}
+        >
+          {isNotExpired ? uses : "expired"}
+        </a>
+        from:{" "}
+        <a
+          style={{
+            fontSize: `${(cellSize * cellsAmount) / 4 - 2}px`,
+            fontWeight: "bold",
+          }}
+        >
+          {data.minter}
         </a>
       </div>
     </div>

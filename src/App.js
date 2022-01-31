@@ -10,4 +10,8 @@ function App() {
   return <Tokens key={uid()} />;
 }
 
-export default App;
+export default () => (
+  <div style={{ marginLeft: 25, marginTop: 25 }}>
+    <App />
+  </div>
+);

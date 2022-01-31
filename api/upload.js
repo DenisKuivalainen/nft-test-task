@@ -57,7 +57,7 @@ const generateSvg = () => {
 
 const handler = async (req, res) => {
   const fileName = `${uid(30)}.svg`;
-  const { name } = req.body;
+  const { name, minter, reciever, expiration } = req.body;
 
   const client = create({
     host: "ipfs.infura.io",
@@ -76,6 +76,9 @@ const handler = async (req, res) => {
     path: `${fileName}.json`,
     content: JSON.stringify({
       name,
+      minter,
+      reciever,
+      expiration,
       image: svgAdded.cid.toString(),
     }),
   });
